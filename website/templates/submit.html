@@ -11,7 +11,6 @@
             id="nombre"
             class="inputformat"
             placeholder="Nombre Completo"
-            oninvalid="this.setCustomValidity('Error')"
             required
             pattern="\S(.*\S)?"
 
@@ -25,7 +24,6 @@
             id="email"
             name="email"
             placeholder="Correo@correo.com"
-            oninvalid="this.setCustomValidity('Error')"
             required
             pattern="\S(.*\S)?"
         />
@@ -49,7 +47,6 @@
             id="dom"
             name="dom"
             placeholder="Nombre de Calle y numero"
-            oninvalid="this.setCustomValidity('Error')"
             required
             pattern="\S(.*\S)?"
         />
@@ -78,7 +75,6 @@
             class="inputformat"
             name="carrera_ced"
             placeholder="Numero de Cedula de Licenciatura."
-            oninvalid="this.setCustomValidity('Error')"
             required
             pattern="\S(.*\S)?"
 
@@ -139,7 +135,10 @@
 
         />
         <br/>
-
+        <br/>
+        <br/>
+        <button type="submit" class="floatingbutton">Enviar Solicitud</button>
+        <br/>
     </div>
     <div class = "fileform">
         <label for="dom">Titulo de Licenciatura<span>  (obligatorio)</span></label>
@@ -164,26 +163,19 @@
         <br/>
         <label for="dom">Carta de Tramite de Cédula<span>  (obligatorio)</span></label>
         <br/>
-            <input class="custom-file-upload" id="file-upload" type="file" placeholder="coo" multiple/>
+            <input style="height:88px;" class="custom-file-upload" id="file-upload" type="file" placeholder="coo" multiple/>
         <br/>
         <br/>
         <label for="dom">Identificacion oficial vigente (INE, Paraporte, Licencia de conducir)<span>  (obligatorio)</span></label>
         <br/>
-            <input class="custom-file-upload" id="file-upload" type="file" placeholder="coo" multiple/>
-        <br/>
-        <br/>
-        <label for="dom">Identificacion oficial vigente (INE, Paraporte, Licencia de conducir)</label>
-        <br/>
-            <input class="custom-file-upload" id="file-upload" type="file" placeholder="coo" multiple/>
+            <input style="height:88px;" class="custom-file-upload" id="file-upload" type="file" placeholder="coo" multiple/>
         <br/>
         <br/>
         <label for="dom">Fotografia del pago<span>  (obligatorio) <br/> Se le informa que para poder procesar el envio de su constancia sera necesario realizar un pago de $350MXN a la cuenta Santander 65509166922 con CLABE Interbancaria 014320655091669225.</span></label>
         <br/>
-            <input class="custom-file-upload" id="file-upload" type="file" placeholder="coo" multiple/>
-        <br/>
-        <br/>
+            <input style="height:88px;" class="custom-file-upload" id="file-upload" type="file" placeholder="coo" multiple/>
 
-        <button type="submit" class="floatingbutton">Enviar Solicitud</button>
+
     </div>
         
 </form>
