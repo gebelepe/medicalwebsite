@@ -1,0 +1,5 @@
+flask
+Flask-SQLAlchemy
+flask-login
+reportlab
+reportlab_qrcode
