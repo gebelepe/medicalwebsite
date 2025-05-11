@@ -1,0 +1,192 @@
+{% extends "base.html" %} {% block title %}Solicitud{% endblock %}{% block content %}    
+
+<form method="POST">
+    <div class="formformat">
+        <h1 align="center" style="color:black;">Solicitud</h3>
+        <label for="nombre">Nombre<span>  (obligatorio)</span></label>
+        <br/>
+        <input 
+            type="text"
+            name="nombre" 
+            id="nombre"
+            class="inputformat"
+            placeholder="Nombre Completo"
+            oninvalid="this.setCustomValidity('Error')"
+            required
+            pattern="\S(.*\S)?"
+
+        />
+        <br/>
+        <br/>
+        <label for="email">Correo Electronico<span>  (obligatorio)</span></label>
+        <input
+            type="email"
+            class="inputformat"
+            id="email"
+            name="email"
+            placeholder="Correo@correo.com"
+            oninvalid="this.setCustomValidity('Error')"
+            required
+            pattern="\S(.*\S)?"
+        />
+        <br/>
+        <br/>
+        <label for="number">Numero de telefono o celular</label>
+        <input
+            type="text"
+            class="inputformat"
+            id="number"
+            name="number"
+            placeholder="(##) ####-####"
+            pattern="\S(.*\S)?"
+        />
+        <br/>
+        <br/>
+        <label for="dom">Domicilio<span>  (obligatorio)</span></label>
+        <input
+            type="text"
+            class="inputformat"
+            id="dom"
+            name="dom"
+            placeholder="Nombre de Calle y numero"
+            oninvalid="this.setCustomValidity('Error')"
+            required
+            pattern="\S(.*\S)?"
+        />
+        <br/>
+        <br/>
+        <label for="carrera">Nombre de Institucion, Carrera y Cédula de la Licenciatura<span>  (obligatorio)</span></label>
+        <div class="selectWrapper">
+            <select id="carrera_inst" name ="carrera_inst" class="selectBox" required>
+                <option value="" disabled selected>Institución de egreso de la carrera.</option>
+                <option value="Centro Universitario de Ciencias de la Salud">C.U.C.S.</option>
+                <option value="Universidad Nacional Autónoma de México">U.N.A.M.</option>
+                <option value="Universidad Panamericana">Universidad Panamericana.</option>
+                <option value="Instituto Politecnico Nacional">I.P.N.</option>
+            </select>
+        </div>
+        <div class="selectWrapper">
+            <select id="carrera" name ="carrera" class="selectBox" required>
+                <option value="" disabled selected>Carrera</option>
+                <option value="Licenciatura en Médico Cirujano">Licenciatura en Médico Cirujano.</option>
+                <option value="Licenciatura en Cirujano Dentista">Licenciatura en Cirujano Dentista.</option>
+            </select>
+        </div>
+        <input
+            type="text"
+            id="carrera_ced"
+            class="inputformat"
+            name="carrera_ced"
+            placeholder="Numero de Cedula de Licenciatura."
+            oninvalid="this.setCustomValidity('Error')"
+            required
+            pattern="\S(.*\S)?"
+
+        />
+        <br/>
+        <br/>
+        <label for="dom">Nombre de Institucion, Especializacion y Cédula de Especializacion</label>
+
+        <div class="selectWrapper">
+            <select id="esp_inst" name ="esp_inst" class="selectBox" required>
+                <option value="" disabled selected>Institucion de egreso de la Especialidad</option>
+                <option value="unsp">Sin Especialización.</option>
+                <option value="Centro Universitario de Ciencias de la Salud">C.U.C.S.</option>
+                <option value="Universidad Nacional Autónoma de México">U.N.A.M.</option>
+                <option value="Universidad Panamericana">Universidad Panamericana.</option>
+                <option value="Instituto Politecnico Nacional">I.P.N.</option>
+            </select>
+        </div>
+        <div class="selectWrapper">
+            <select id="esp" name ="esp" class="selectBox" required>
+                <option value="" disabled selected>Especialidad</option>
+                <option value="unsp">Sin Especialización.</option>
+                <option value="Alergia e inmunología Clínica">Alergia e inmunología Clínica.</option>
+                <option value="Cardiología">Cardiología.</option>
+                <option value="Gastroenterología">Gastroenterología.</option>
+                <option value="Medicina Nuclear e Imaginología Molecular">Medicina Nuclear e Imaginología Molecular.</option>
+            </select>
+        </div>
+
+        <input
+            type="text"
+            id="esp_ced"
+            class="inputformat"
+            name="esp_ced"
+            placeholder="Numero de Cedula de Especializacion"
+            pattern="\S(.*\S)?"
+
+        />
+        <br/>
+        <br/>
+        <label for="dom">Nombre y numero de telefono del representante</label>
+        <input
+            type="text"
+            class="inputformat"
+            id="rep_nombre"
+            name="rep_nombre"
+            placeholder="Nombre Completo"
+            pattern="\S(.*\S)?"
+
+        />
+        <input
+            type="text"
+            class="inputformat"
+            id="rep_numero"
+            name="rep_numero"
+            placeholder="(##) ####-####"
+            pattern="\S(.*\S)?"
+
+        />
+        <br/>
+
+    </div>
+    <div class = "fileform">
+        <label for="dom">Titulo de Licenciatura<span>  (obligatorio)</span></label>
+        <br/>
+            <input class="custom-file-upload" id="file-upload" type="file" placeholder="coo" multiple required/>
+        <br/>
+        <br/>
+        <label for="dom">Cedula Profesional de Licenciatura<span>  (obligatorio)</span></label>
+        <br/>
+            <input class="custom-file-upload" id="file-upload" type="file" placeholder="coo" multiple required/>
+        <br/>
+        <br/>
+        <label for="dom">Titulo de especialidad</label>
+        <br/>
+            <input class="custom-file-upload" id="file-upload" type="file" placeholder="coo" multiple required/>
+        <br/>
+        <br/>
+        <label for="dom">Cedula profesional de Especialidad</label>
+        <br/>
+            <input class="custom-file-upload" id="file-upload" type="file" placeholder="coo" multiple required/>
+        <br/>
+        <br/>
+        <label for="dom">Carta de Tramite de Cédula<span>  (obligatorio)</span></label>
+        <br/>
+            <input class="custom-file-upload" id="file-upload" type="file" placeholder="coo" multiple required/>
+        <br/>
+        <br/>
+        <label for="dom">Identificacion oficial vigente (INE, Paraporte, Licencia de conducir)<span>  (obligatorio)</span></label>
+        <br/>
+            <input class="custom-file-upload" id="file-upload" type="file" placeholder="coo" multiple required/>
+        <br/>
+        <br/>
+        <label for="dom">Identificacion oficial vigente (INE, Paraporte, Licencia de conducir)</label>
+        <br/>
+            <input class="custom-file-upload" id="file-upload" type="file" placeholder="coo" multiple required/>
+        <br/>
+        <br/>
+        <label for="dom">Fotografia del pago<span>  (obligatorio) <br/> Se le informa que para poder procesar el envio de su constancia sera necesario realizar un pago de $350MXN a la cuenta Santander 65509166922 con CLABE Interbancaria 014320655091669225.</span></label>
+        <br/>
+            <input class="custom-file-upload" id="file-upload" type="file" placeholder="coo" multiple required/>
+        <br/>
+        <br/>
+
+        <button type="submit" class="floatingbutton">Enviar Solicitud</button>
+    </div>
+        
+</form>
+
+
+{% endblock %}{% block footer %}{% endblock %}

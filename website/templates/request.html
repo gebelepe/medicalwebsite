@@ -1,0 +1,34 @@
+{% extends "base.html" %} {% block title %}request{% endblock %}{% block content %}
+
+<form method="POST">
+    <div class="floatingelement">
+        <h1 align="center">Descargar Solicitud</h3>
+        <label for="carrera_ced">Numero de Cédula de Carrera<span>  (obligatorio)</span></label>
+        <input
+            type="text"
+            class="input"
+            id="carrera_ced"
+            name="carrera_ced"
+            placeholder="########"
+            oninvalid="this.setCustomValidity('Informacion requerida')"
+            required
+            pattern="\S(.*\S)?"
+        />
+        <br/>
+        <br/>
+        <label for="esp_ced">Numero de Cédula de Especialidad</label>
+        <input
+            type="text"
+            class="input"
+            id="esp_ced"
+            name="esp_ced"
+            placeholder="########"
+            pattern="\S(.*\S)?"
+        />
+        <br/>
+        <br/>
+        <button type="submit" class="floatingbutton">Descargar</button>
+    </div>
+</form>
+
+{% endblock %}

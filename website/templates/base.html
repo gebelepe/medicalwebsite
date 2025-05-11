@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<style>
+    html { 
+      margin: 20px; padding: 0;
+      background: url('static/background.png') no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+
+        }
+
+    .marcellus-regular {
+        font-family: "Marcellus", serif;
+        font-weight: 300;
+        font-style: normal;
+        }
+
+    .pt-serif-regular {
+        font-family: "PT Serif", serif;
+        font-weight: 200;
+        font-style: normal;
+        }
+
+
+    .floatingelement {
+        position: absolute;
+        top: 150px;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, 0%);
+        padding:20px;
+        background-color: #f9f9fb;
+        color: #555555;
+        font-weight: bold;
+        width:46%;
+        border-radius: 20px;
+    }
+    .formformat {
+        position: absolute;
+        top: 150px;
+        left: 20px;
+        margin-right: -50%;
+        transform: translate(0, 0%);
+        padding:20px;
+        background-color: #f9f9fb;
+        color: #555555;
+        font-weight: bold;
+        width:46%;
+        border-radius: 20px;
+
+    }
+    .fileform {
+        position: absolute;
+        top: 150px;
+        right: 20px;
+        transform: translate(0%, 0%);
+        padding:20px;
+        background-color: #f9f9fb;
+        color: #555555;
+        font-weight: bold;
+        width:46%;
+        border-radius: 20px;
+    }
+
+    .transparentfloatingelement {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        padding:20px;
+        background-color: transparent;
+        color: white;
+        width:90%;
+    }
+    .floatingbutton {
+        position: relative;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, 0%);
+        padding:20px;
+        background-color: black;
+        border: transparent;
+        color: white;
+        border-radius:30px;
+        width:220px;
+        height:100%;
+        font-family: 'PT Serif';
+    }
+
+
+    .selectWrapper{
+        border-radius:25px;
+        display:inline-block;
+        overflow:hidden;
+        border:2px solid #cccccc;
+        width: 49.5%;
+    }
+
+    select:valid{
+        border:2px solid rgb(195, 255, 195);
+    }
+
+    .selectBox{
+        border-radius:25px;
+        width:140px;
+        height:40px;
+        border:0px;
+        outline:none;
+        width:100%;
+        padding-left: 15px;
+        color: #777777;
+    }
+
+    footer {
+        background-color: #f8f9fa;
+        padding: 1rem 0;
+        margin-top: auto;
+        position:fixed;
+        bottom:0;
+        left:0;
+        margin:1%;
+        width:60%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, 22px);
+        border-radius:5px;
+        }
+
+    a {
+        font-size:18px;
+        }
+    h1 {
+        text-align: center;
+        font-family: "Marcellus", serif;
+        font-weight:100;
+        font-style:normal;
+        }
+    
+    p {
+        text-align: center;
+        font-family: "consolas", serif;
+        font-weight:100;
+        font-style:normal;
+        }
+    
+    label {
+        font-family: "PT Serif", serif;
+        font-weight:200;
+        }
+
+    label span {
+        font-size: 12px;
+        color:gray;
+    }   
+
+    .inputformat:valid {
+        border-radius:25px;
+        border:2px solid rgb(195, 255, 195);
+        border-style: solid;
+        border-inline-width: 1px;
+        width:100%;
+        height:50px;
+        padding:15px;
+    }
+
+    .inputformat:invalid {
+        border-radius:25px;
+        border:2px solid rgb(255, 195, 195);
+        width:100%;
+        height:50px;
+        padding:15px;
+    }
+
+    .inputformat:placeholder-shown {
+        border-radius:25px;
+        border:2px solid #cccccc;
+        width:100%;
+        height:50px;
+        padding:15px;
+    }
+
+    .custom-file-upload {
+        font-family: "PT Serif", serif;
+        text-align: center;
+        border:2px dashed black;
+        border-radius:25px;
+
+        width:100%;
+        height:100px;
+        padding:15px;
+        }
+
+</style>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif&display=swap" rel="stylesheet">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            crossorigin="anonymous"
+        />
+
+        <title>{% block title %}Inicio{% endblock %}</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbar"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar">
+                <div class="navbar-nav">
+                    <a class="navbar-brand" href="/">
+                        <img src="https://portalesmuli.s3.amazonaws.com/camejal/original_images/logos_camejal_1.jpg" alt="" width="192" height="43" alt="">
+                    </a>
+                </div>
+
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" id="home" style="font-size:20px;font-family:'Marcellus';">Constancia de no queja médica</a>
+                </div>
+
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-item nav-link" id="home" href="/">Inicio</a>
+                    <a class="nav-item nav-link" id="about" href="/request">Descargar</a>
+                    <a class="nav-item nav-link" id="about" href="/about">Acerca de</a>
+                </div>
+            </div>
+        
+        </nav>        
+
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+        
+        {% block footer %}
+        <footer class="footer mt-auto py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="text-muted"> Comisión de Arbitraje Médico del Estado de Jalisco</span>
+                    </div>
+                    <div class="col-md-6 text-right ml-auto">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item"><a href="/contact" class="text-muted">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
