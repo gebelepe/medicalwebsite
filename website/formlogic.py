@@ -12,6 +12,7 @@ def formsubmit():
     if request.method == 'POST':
         data = request.form
         nombre = data.get('nombre')
+        email = data.get('email')
         carrera = data.get('carrera')
         carrera_inst = data.get('carrera_inst')
         carrera_ced = data.get('carrera_ced')
@@ -27,9 +28,8 @@ def formsubmit():
         if esp == 'unsp' or esp_inst == 'unsp':
             file = Path(path+"/database/"+"constancia_"+carrera_ced+".pdf")
             items=[nombre,carrera,carrera_inst,carrera_ced,rep_nombre,rep_numero]
-
         if file.is_file():
-            return redirect(url_for('formlogic.formrequest'))
+            return render_template("existingform.html")
         else:
             flag = True
             for i in items:
@@ -37,7 +37,8 @@ def formsubmit():
                     flag = False
             if flag:
                 doc_gen_func(nombre,carrera,carrera_inst,carrera_ced,esp,esp_inst,esp_ced,rep_nombre,rep_numero)
-                return redirect(url_for('formlogic.formrequest'))
+
+                return render_template("submitted.html")
             else:
                 return redirect(url_for('formlogic.formsubmit'))
 
@@ -57,5 +58,5 @@ def formrequest():
         if file.is_file():
             return send_file(file, as_attachment=True)
         else:
-            return redirect(url_for('views.home'))
+            return render_template("filenotfound.html")
     return render_template("request.html")

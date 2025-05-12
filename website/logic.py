@@ -1,5 +1,5 @@
 # importing modules 
-import inspect, os.path, os
+import inspect, os.path, os, errno
 from reportlab.pdfgen import canvas 
 from reportlab.pdfbase import pdfmetrics 
 from reportlab.pdfbase.ttfonts import TTFont 
@@ -9,9 +9,17 @@ from reportlab.lib.units import mm
 from reportlab.lib.pagesizes import A4
 from reportlab_qrcode import QRCodeImage
 
+
 def getPath(executer):
     return os.path.dirname(os.path.abspath(executer)).replace("\\","/")
  
+def make_sure_path_exists(path):
+    try:
+        os.makedirs(path)
+    except OSError as exception:
+        if exception.errno != errno.EEXIST:
+            raise
+
 path = getPath(inspect.getframeinfo(inspect.currentframe()).filename)
 
 Width, Height = A4
@@ -26,8 +34,12 @@ signature = ImageReader(path+"/static/signature.jpg")
 #Funcion de generacion de archivo, devuelve el path del archivo
 def doc_gen_func(nombre,carrera,carrera_inst,carrera_ced,esp,esp_inst,esp_ced,rep_nombre,rep_numero):
     #Se define el nombre de archivo
+
+
     fileName = "constancia_"+carrera_ced+"_"+esp_ced+".pdf"
     filepath = path+"/database/"+fileName
+    make_sure_path_exists(path+'/database')
+
     #Texto Titulo
     title = 'CONSTANCIA DE NO QUÉJA MÉDICA'
 
@@ -37,7 +49,7 @@ def doc_gen_func(nombre,carrera,carrera_inst,carrera_ced,esp,esp_inst,esp_ced,re
     #texto de advertencia, cuerpo del archivo
     disc = [
     'Se le informa a traves de la presente que la persona solicitante es apta para cumplir sus',
-    'funciones medicas especificadas   anteriormente en este documento aprobado por la',
+    'funciones medicas especificadas anteriormente en este documento aprobado por la',
     'Comisión de Arbitraje Médico del Estado de Jalisco "CAMEJAL".',
     '',
     'Tambien se le  informa que este documento es trunco y toda informacion aqui mostrada',
@@ -46,7 +58,7 @@ def doc_gen_func(nombre,carrera,carrera_inst,carrera_ced,esp,esp_inst,esp_ced,re
     'funcionamiento de una pieza de software.']
 
     #Aqui se guardan en una lista los datos mandados a traves de la funcion, que serian los datos que el usuario provee
-    values = [carrera,"     "+carrera_inst,"    #"+carrera_ced,esp,"     "+esp_inst,"    #"+esp_ced,"Representante: "+rep_nombre,"      Contactar al "+rep_numero]
+    values = [carrera,"     "+carrera_inst,"      #"+carrera_ced,esp,"     "+esp_inst,"      #"+esp_ced,"Representante: "+rep_nombre,"      Contactar al "+rep_numero]
 
     for i in values:
         if i == "unsp":
@@ -102,7 +114,7 @@ def doc_gen_func(nombre,carrera,carrera_inst,carrera_ced,esp,esp_inst,esp_ced,re
     pdf.drawText(disclaimer)
 
     #Se crea el QR a partir del numero de cedula provisto la informacion se escribe directamente en la url y al abrir el link la pagina muestra si esa solicitud ha sido procesada
-    qr = QRCodeImage('127.0.0.1:5000/certificate', size=45 * mm,fill_color='black')
+    qr = QRCodeImage('127.0.0.1:5000/certificate/'+filepath, size=45 * mm,fill_color='black')
     qr.drawOn(pdf, 25, 25)
 
     #Se escribe el texto de aprobacion
