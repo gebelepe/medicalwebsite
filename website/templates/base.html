@@ -34,6 +34,7 @@
         color: #555555;
         font-weight: bold;
         width:46%;
+        min-width: 400px;
         border-radius: 20px;
     }
     .formformat {
@@ -48,9 +49,12 @@
         font-weight: bold;
         width:46%;
         border-radius: 20px;
+        min-width: 400px;
 
     }
-    .fileform {
+
+    @media (min-width: 900px) {
+        .fileform {
         position: absolute;
         top: 150px;
         right: 20px;
@@ -61,7 +65,59 @@
         font-weight: bold;
         width:46%;
         border-radius: 20px;
+        min-width: 400px;
+        }
+        .formformat {
+        position: absolute;
+        top: 150px;
+        left: 20px;
+        margin-right: -50%;
+        transform: translate(0, 0%);
+        padding:20px;
+        background-color: #f9f9fb;
+        color: #555555;
+        font-weight: bold;
+        width:46%;
+        border-radius: 20px;
+        min-width: 400px;
+
     }
+
+    }
+
+    @media (max-width: 899px) {
+        .fileform {
+        position: absolute;
+        left: 50%;
+        top:1450px;
+        margin-right: -50%;
+        transform: translate(-50%, 0%);
+        padding:20px;
+        background-color: #f9f9fb;
+        color: #555555;
+        font-weight: bold;
+        width:92%;
+        border-radius: 20px;
+        min-width: 400px;
+        }
+        .formformat {
+        position: absolute;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, 0%);
+        padding:20px;
+        background-color: #f9f9fb;
+        color: #555555;
+        font-weight: bold;
+        width:92%;
+        border-radius: 20px;
+        min-width: 400px;
+
+    }
+
+    }
+
+
 
     .transparentfloatingelement {
         position: absolute;
@@ -190,6 +246,10 @@
         height:89px;
         padding:15px;
         }
+    
+    nav {
+        z-index: 1000;
+    }
 
 </style>
 <html>
