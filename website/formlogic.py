@@ -1,9 +1,21 @@
-import inspect, os, os.path
+import inspect, os, os.path, csv
 from flask import Blueprint, render_template, render_template_string, flash, redirect, url_for, send_file, request
 from .logic import doc_gen_func, getPath
 from pathlib import Path
 
 path = getPath(inspect.getframeinfo(inspect.currentframe()).filename)
+base_datos_quejas = path+'/database/quejas.csv'
+complaintlist=[]
+with open(base_datos_quejas,'r',encoding='utf-8-sig') as csvfile:
+    quejas = list(csv.reader(csvfile))
+    for i in quejas:
+        complaintlist.append(i[0])
+    
+
+
+
+
+
 
 formlogic = Blueprint('formlogic',__name__)
 
@@ -36,9 +48,14 @@ def formsubmit():
                 if i == '':
                     flag = False
             if flag:
-                doc_gen_func(nombre,carrera,carrera_inst,carrera_ced,esp,esp_inst,esp_ced,rep_nombre,rep_numero)
-
-                return render_template("submitted.html")
+                flag2 = True
+                for i in complaintlist:
+                    if i.lower() == nombre.lower():
+                        flag2 = False
+                if flag2:
+                    doc_gen_func(nombre,carrera,carrera_inst,carrera_ced,esp,esp_inst,esp_ced,rep_nombre,rep_numero)
+                    return render_template("submitted.html")
+                else: return render_template("complaintfound.html")
             else:
                 return redirect(url_for('formlogic.formsubmit'))
 

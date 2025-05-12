@@ -1,8 +1,8 @@
-# Flask Web App Tutorial
+# Basado en Flask Web App Tutorial
 
 ## Setup & Installation
 
-Make sure you have the latest version of Python installed.
+Asegurate de tener la ultima version de Python
 
 ```bash
 git clone <repo-url>
@@ -12,26 +12,14 @@ git clone <repo-url>
 pip install -r requirements.txt
 ```
 
-## Running The App
+## Correr aplicación
 
 ```bash
 python main.py
 ```
 
-## Viewing The App
+## Ver aplicación
 
 Go to `http://127.0.0.1:5000`
 
-
-# 💻 Launch Your Software Development Career Today!  
-
-🎓 **No degree? No problem!** My program equips you with everything you need to break into tech and land an entry-level software development role.  
-
-🚀 **Why Join?**  
-- 💼 **$70k+ starting salary potential**  
-- 🕐 **Self-paced:** Complete on your own time  
-- 🤑 **Affordable:** Low risk compared to expensive bootcamps or degrees
-- 🎯 **45,000+ job openings** in the market  
-
-👉 **[Start your journey today!](https://techwithtim.net/dev)**  
-No experience needed—just your determination. Future-proof your career and unlock six-figure potential like many of our students have!  
+👉 **[Desarrollador Original!](https://techwithtim.net)**  
