@@ -21,7 +21,7 @@ Width, Height = A4
 
 #Se definen imagenes para suarse durante la creacion del archivo
 camejalLogo = ImageReader('https://portalesmuli.s3.amazonaws.com/camejal/original_images/logos_camejal_1.jpg')
-signature = ImageReader('C:/Users/gabob/Desktop/ProgramaConstanciaNoQuejaMedica/website/static/signature.jpg')
+signature = ImageReader(path+"/static/"+'signature.jpg')
 
 #Funcion de generacion de archivo, devuelve el path del archivo
 def doc_gen_func(nombre,carrera,carrera_inst,carrera_ced,esp,esp_inst,esp_ced,rep_nombre,rep_numero):
