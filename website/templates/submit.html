@@ -115,7 +115,7 @@
         />
         <br/>
         <br/>
-        <label for="dom">Nombre y numero de telefono del representante</label>
+        <label for="dom">Nombre y numero de telefono del representante<span>  (obligatorio)</span></label>
         <input
             type="text"
             class="inputformat"
@@ -123,6 +123,7 @@
             name="rep_nombre"
             placeholder="Nombre Completo"
             pattern="\S(.*\S)?"
+            required
 
         />
         <input
@@ -132,6 +133,7 @@
             name="rep_numero"
             placeholder="(##) ####-####"
             pattern="\S(.*\S)?"
+            required
 
         />
         <br/>
